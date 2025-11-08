@@ -1,1 +1,1 @@
-em++ main.cpp -o index.html -std=c++17 -Os -Wall -lembind -I include/ -L lib/ -llua --shell-file shell.html
+em++ main.cpp -o index.html -std=c++17 -Os -Wall -lembind -I include/ -L lib/ -llua -lembind --shell-file shell.html

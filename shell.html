@@ -4,15 +4,33 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>web lua</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/midnight.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/lua/lua.min.js"></script>
+
     <style>
         body { margin: 0px; }
     </style>
     </head>
     <body>
+        <textarea id="editor">print("Hello, Lua!")</textarea>
+        <button id="run-btn">run</button>
         <script>
-            var Module = {
+            window.CodeMirror = CodeMirror.fromTextArea(document.getElementById("editor"), {
+                mode: "lua",
+                lineNumbers: true,
+                theme: "midnight",
+                tabSize: 4
+            });
+
+            window.Module = {
                 onRuntimeInitialized: function () {
-                    console.log("onRuntimeInitialized");
+                    let run_btn = document.getElementById('run-btn');
+
+                    run_btn.addEventListener('click', () => {
+                        Module.RunLua(CodeMirror.getValue().toString());
+                    })
                 }
             };
         </script>
