@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>web lua</title>
+    <style>
+        body { margin: 0px; }
+    </style>
+    </head>
+    <body>
+        <script>
+            var Module = {
+                onRuntimeInitialized: function () {
+                    console.log("onRuntimeInitialized");
+                }
+            };
+        </script>
+        {{{ SCRIPT }}}
+    </body>
+</html>
